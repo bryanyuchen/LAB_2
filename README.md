@@ -18,7 +18,7 @@ https://github.com/esp8266/Arduino/issues/584
 In this design, I connected the jumper cables to GPIOs 4 and 5, which correspond to servos 1 and 2 respectively. Through this mapping, it technically corresponds to GPIOs 2 and 14.
 
 Mechanical Drawing:----------------------------------------------------------------------------------------------------------------------
-![Alt text](/Lab 2 graphics/Mechanical Schematic.jpg?raw=true "Mechanical Schematic)
+![Alt text](LAB_2/Lab 2 graphics/Mechanical Schematic.jpg?raw=true "Mechanical Schematic)
 
 Code:------------------------------------------------------------------------------------------------------------------------------------
 Please see associated Arduino files (one for normal routine, one for http requests)
