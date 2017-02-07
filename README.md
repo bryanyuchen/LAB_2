@@ -12,18 +12,20 @@ Bill Of Materials:--------------------------------------------------------------
 -screwdriver (to screw the servo together)
 
 Wiring Schematic:------------------------------------------------------------------------------------------------------------------------
-See 'photo of robot 3'
 I found the mapping provided on the website to be incorrect, so I google searched, and found one that worked for me here:
 https://github.com/esp8266/Arduino/issues/584
 In this design, I connected the jumper cables to GPIOs 4 and 5, which correspond to servos 1 and 2 respectively. Through this mapping, it technically corresponds to GPIOs 2 and 14.
 
-Mechanical Drawing:----------------------------------------------------------------------------------------------------------------------
+![Settings Window](https://github.com/bryanyuchen/LAB_2/blob/master/Lab%202%20graphics/photo%20of%20robot%203.jpg?raw=true)
+
+
+Mechanical Drawing:--------------------------------------------------------------------------------------------------------------------
 ![Settings Window](https://raw.githubusercontent.com/bryanyuchen/LAB_2/master/Lab%202%20graphics/Mechanical%20Schematic.jpg)
 
 Code:------------------------------------------------------------------------------------------------------------------------------------
 Please see associated Arduino files (one for normal routine, one for http requests)
 
-Design of System: -----------------------------------------------------------------------------------------------------------------------
+Design of System: ----------------------------------------------------------------------------------------------------------------------
 
 Pre-test Inspiration:
 
