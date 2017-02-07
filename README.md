@@ -1,13 +1,27 @@
 LAB 2 Documentation
 
 Bill Of Materials:-----------------------------------------------------------------------------------------------------------------------
+-ESP8266 12E Development Board
+-ESP 12E Motor Shield
+-FS90R Micro Continuous Rotation Servo
+-FS90 Micro 9g servo
+-Jumper cables (included with the servos)
+-Quarters (or any other item to use as weights)
+-Cardboard
+-mini-usb cable
+-screwdriver (to screw the servo together)
 
 Wiring Schematic:------------------------------------------------------------------------------------------------------------------------
+See 'photo of robot 3'
+I found the mapping provided on the website to be incorrect, so I google searched, and found one that worked for me here:
+https://github.com/esp8266/Arduino/issues/584
+In this design, I connected the jumper cables to GPIOs 4 and 5, which correspond to servos 1 and 2 respectively. Through this mapping, it technically corresponds to GPIOs 2 and 14.
 
 Mechanical Drawing:----------------------------------------------------------------------------------------------------------------------
+See attached 'Mechanical Schematic'
 
 Code:------------------------------------------------------------------------------------------------------------------------------------
-Please see associated Arduino file 
+Please see associated Arduino files (one for normal routine, one for http requests)
 
 Design of System: -----------------------------------------------------------------------------------------------------------------------
 
@@ -113,7 +127,19 @@ ISSUE 4:
 
 The connection between servo 1 and the carboard on which servo 2 sits turned out to be rather weak. Therefore, I screwed a screw into the cardboard to secure it with the tip of servo 1's arm. In addition, I stuffed both sides of servo 1's arm with scrunched paper to provide more support in its connection with the cardboard.
 
+ISSUE 5:
+When the web interface is introduced, it seems that it interrupts the general flow of the program. I noticed that the demo code writes:
+
+
+if (request.indexOf("/OFF") != -1){
+digitalWrite(LED_PIN, HIGH); }
+else if (request.indexOf("/ON") != -1){
+digitalWrite(LED_PIN, LOW);
+}
+
+I'm guessing that when the http request disconnects (I'm not very familiar with http), something changes, and this code can cope with that because there are only two options for the led - on or off - so if its not off then its on and vice versa. However, this logic doesn't translate well into my http interface since there are multiple options.
+
 With these issues pointed out and fixes implemented, the results can be seen with the following video link:
 
-
-To improve on this design in the future, I would replace the cardboard slabs with 3d printed materials, as the carboard's instability seemed to magnify errors. If possible, I would also search for a longer arm to attach onto servo 1, so that it can form a stronger connection with the cardboard slab or 3d printed slab. In addition, I would also replace the continuous servo 2 with a normal servo, so that instead of rotation 360 degrees, servo 2 could simply rotate downwards to play a key, and then come back up. This would first of all, be able to play notes faster than the continous arm servo, and secondly, help to simplify design of the slab, which I had to cut a whole in to account for the continuous rotation of the arm. If necessary, replacing servo 2 with a normal servo would also provide control into the extent to which servo 2 presses down on the notes, controlling the dynamics of the music, or in other words, whether to play the note loud or soft.
+Conclusion:
+To improve on this design in the future, I would replace the cardboard slabs with 3d printed materials, as the carboard's instability seemed to magnify errors. If possible, I would also search for a longer arm to attach onto servo 1, so that it can form a stronger connection with the cardboard slab or 3d printed slab. In addition, I would also replace the continuous servo 2 with a normal servo, so that instead of rotation 360 degrees, servo 2 could simply rotate downwards to play a key, and then come back up. This would first of all, be able to play notes faster than the continous arm servo, and secondly, help to simplify design of the slab, which I had to cut a whole in to account for the continuous rotation of the arm. If necessary, replacing servo 2 with a normal servo would also provide control into the extent to which servo 2 presses down on the notes, controlling the dynamics of the music, or in other words, whether to play the note loud or soft. As for the http issue, I would look into the lower layers of the code and see if there is something within the http code that I can edit to make the http interface more effective.
