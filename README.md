@@ -122,16 +122,13 @@ The angles written in arduino do not translate well into the actual angles the s
    'a' = 0  degrees
     
 ISSUE 3:
-
 It was often hard for servo 2 to press down on the keys to make a sound - I didn't realize how much force was required to play a note on a piano. To deal with this issue, I taped stacks of quarters down on each key, carefully weighed to provide enough weight on the key so that a gentle stroke would allow the key to be played. In addition, I attached some batteries on the arm of the system to provide more weight to servo 2.
 
 ISSUE 4:
-
 The connection between servo 1 and the carboard on which servo 2 sits turned out to be rather weak. Therefore, I screwed a screw into the cardboard to secure it with the tip of servo 1's arm. In addition, I stuffed both sides of servo 1's arm with scrunched paper to provide more support in its connection with the cardboard.
 
 ISSUE 5:
 When the web interface is introduced, it seems that it interrupts the general flow of the program. I noticed that the demo code writes:
-
 
 if (request.indexOf("/OFF") != -1){
 digitalWrite(LED_PIN, HIGH); }
@@ -142,6 +139,16 @@ digitalWrite(LED_PIN, LOW);
 I'm guessing that when the http request disconnects (I'm not very familiar with http), something changes, and this code can cope with that because there are only two options for the led - on or off - so if its not off then its on and vice versa. However, this logic doesn't translate well into my http interface since there are multiple options.
 
 With these issues pointed out and fixes implemented, the results can be seen with the following video link:
+https://www.youtube.com/watch?v=uNktPh-6NPU
 
 Conclusion:
 To improve on this design in the future, I would replace the cardboard slabs with 3d printed materials, as the carboard's instability seemed to magnify errors. If possible, I would also search for a longer arm to attach onto servo 1, so that it can form a stronger connection with the cardboard slab or 3d printed slab. In addition, I would also replace the continuous servo 2 with a normal servo, so that instead of rotation 360 degrees, servo 2 could simply rotate downwards to play a key, and then come back up. This would first of all, be able to play notes faster than the continous arm servo, and secondly, help to simplify design of the slab, which I had to cut a whole in to account for the continuous rotation of the arm. If necessary, replacing servo 2 with a normal servo would also provide control into the extent to which servo 2 presses down on the notes, controlling the dynamics of the music, or in other words, whether to play the note loud or soft. As for the http issue, I would look into the lower layers of the code and see if there is something within the http code that I can edit to make the http interface more effective.
+
+Appendix:
+This repo is sorted into 3 folders:
+Lab 2 graphics contains all images taken of this project
+Lab_2 contains the arduino code to run the default routine of this project without the HTTP request (since it introduced some error)
+Lab_2_HTTP contains the arduino code to run the web server, as demoed in the last part of the video
+ForwardKinematicsLab2.m is the Matlab code I ran to calculate the forward kinematics of my system 
+The demo video (which was also linked above) can be viewed here: https://www.youtube.com/watch?v=uNktPh-6NPU
+
