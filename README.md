@@ -146,9 +146,14 @@ To improve on this design in the future, I would replace the cardboard slabs wit
 
 Appendix:
 This repo is sorted into 3 folders:
+ 
 Lab 2 graphics contains all images taken of this project
+ 
 Lab_2 contains the arduino code to run the default routine of this project without the HTTP request (since it introduced some error)
+ 
 Lab_2_HTTP contains the arduino code to run the web server, as demoed in the last part of the video
+ 
 ForwardKinematicsLab2.m is the Matlab code I ran to calculate the forward kinematics of my system 
+ 
 The demo video (which was also linked above) can be viewed here: https://www.youtube.com/watch?v=uNktPh-6NPU
 
